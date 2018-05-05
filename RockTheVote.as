@@ -453,7 +453,7 @@ void DecrementVoteSeconds()
     secondsleftforvote--;
 
   }
-  else if (secondsleftforvote == 0 && g_PlaySounds.GetBool())
+  else if (secondsleftforvote == 0)
   {
 
     PostVote();
