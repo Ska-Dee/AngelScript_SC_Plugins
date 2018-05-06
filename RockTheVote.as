@@ -998,6 +998,7 @@ void BeginVote()
 
   array<string> rtvList;
   array<string> mapsNominated = GetNominatedMaps();
+  array<string> checkedMaps;
 
   for (uint i = 0; i < forcenommaps.length(); i++)
     rtvList.insertLast(forcenommaps[i]);
@@ -1029,11 +1030,14 @@ void BeginVote()
 
   }
 
-  while (remaining > 0)
+  while (remaining > 0 && int(checkedMaps.length()) < int(maplist.length()))
   {
 
     //Fill rest of menu with random maps
     string rMap = RandomMap();
+
+    if (checkedMaps.find(rMap) < 0)
+      checkedMaps.insertLast(rMap);
 
     if ( ((rtvList.find(rMap)) < 0) && (prevmaps.find(rMap) < 0))
     {
